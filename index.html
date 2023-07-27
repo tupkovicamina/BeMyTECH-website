@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BeMyTECH</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel="apple-touch-icon" href="bootstrap/assets/img/Be My TECH.png">
+    <link rel="shortcut icon" type="image/x-icon" href="bootstrap/assets/img/Be_My_TECH-removebg-preview.png">
+    <link rel="stylesheet" href="bootstrap/assets/css/spapp.css" />
+
+    <link rel="stylesheet" href="bootstrap/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/assets/css/templatemo.css">
+    <link rel="stylesheet" href="bootstrap/assets/css/userProfile.css">
+    <link rel="stylesheet" href="bootstrap/assets/css/custom.css">
+    <link rel="stylesheet" href="bootstrap/assets/css/spapp.css" />
+
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="bootstrap/assets/css/fontawesome.min.css">
+
+
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between" style="margin-right: 20px;">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none"
+                        href="mailto:bemystep@gmail.com">info@bemytech.ba</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:033-333-333">033-333-333</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://www.facebook.com/profile.php?id=100092992320897&mibextid=LQQJ4d" target="_blank" rel="sponsored"><i
+                            class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/company/bemytech/" target="_blank"><i
+                            class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="#home"
+                onclick="ChangeTab.goToHomePage();">
+                <img src="bootstrap/assets/img/Be_My_TECH-removebg-cropped.png" width="130" height="60">
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto" id="tabs">
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                        data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+
+                    <a id="buttonCart" class="nav-icon position-relative text-decoration-none" href="#cart"
+                        onclick="ChangeTab.goToCartPage(localStorage.getItem('user_token'));">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+
+                    <a class="nav-icon position-relative text-decoration-none" href="#user"
+                        onclick="ChangeTab.goToUserPage(localStorage.getItem('user_token'));">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="spapp" role="main">
+
+    </main>
+
+    <!-- Close Header -->
+
+    <div id="ShopDiv" style="display:none">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="row-container justify-content-center">
+                        <h5 class="h5 pb-4">FILTER</h5>
+                        <ul class="list-unstyled templatemo-accordion">
+                          <div class="row">
+                            <div class="col-md-4" id="categoryContainer"></div>
+                            <div class="col-md-4" id="supplierContainer"></div>
+                            <div class="col-md-4" id="orderContainer">
+                              <div class="dropdown" style="margin-bottom: 20px;">
+                                <button id="button-order" class="btn btn-success" style="border-color: white !important; background-color: white !important;">
+                                  <select class="form-select" id="dropdown-order" style="border-color:white;">
+                                    <option value="desc">High to Low</option>
+                                    <option value="asc">Low to High</option>
+                                    <option value="" selected disabled>Price</option>
+                                  </select>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </ul>
+                        <div class="row" style="padding-bottom: 45px;">
+                          <div class="col-md-6 mt-2">
+                            <button type="submit" onclick="ProductService.getProductsWithFilters()" style="width: 70px; background-color: lightgrey; font-size: small; border-color: white; color: black;" class="btn btn-secondary btn-lg px-3">View</button>
+                          </div>
+                          <div class="col-md-6 mt-2">
+                            <button type="submit" onclick="ProductService.getProducts()" style="width: 70px; background-color: lightgrey; font-size: small; border-color: white; color: black;" class="btn btn-secondary btn-lg px-3">Reset</button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div id="buttoncontainer" style="border-color: white; margin-bottom: 20px; margin-right: 50px;" class="col justify-content-center">
+                        <button id="addProductButton" onclick="showAddDialog();" style="margin-right: 10px; font-size: small;" class="btn btn-success">Add Product</button>
+                        <button id="addSupplierButton" onclick="showAddSupplierDialog();" style="margin-right: 10px; font-size: small;" class="btn btn-success">Add Supplier</button>
+                        <button id="addCategoryButton" onclick="showAddCategoryDialog();" style="font-size: small;" class="btn btn-success">Add Category</button>
+                      </div>
+                      
+
+                </div>
+                <div id="productContainer"></div>
+
+            </div>
+        </div>
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+            <div class="w-100 bg-black py-3">
+                <div class="container text-light">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left">
+                                Copyright &copy; 2023 BeMyTECH
+                                | Designed by BeMyTECH
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+    </div>
+
+    <div id="HomeDiv">
+        <section class="bg-success py-5">
+            <div class="container">
+                <div class="row align-items-center py-5">
+                    <div class="col-md-8 text-white">
+                        <h3>Welcome to BeMyTECH!</h3>
+                        <p>
+                            At BeMyTECH, we believe in a world where technology is inclusive and accessible to everyone.
+                            We are dedicated to designing and manufacturing innovative products that empower individuals
+                            with
+                            diverse needs, including those facing visual challenges. Our mission is to bridge the gap
+                            between people and technology, enabling seamless integration and enhanced experiences.
+                        </p>
+                        <p>
+                            We understand the importance of personalized support, which is why our team of experts is
+                            here to guide you through the selection process and provide ongoing assistance. We are
+                            committed to delivering exceptional customer service and ensuring that your journey with
+                            BeMyTECH is a seamless and rewarding one.
+                        </p>
+                        <p>
+                            Join us as we revolutionize accessibility and empower individuals to navigate the digital
+                            world confidently and independently. Explore our website, connect with us, and discover the
+                            possibilities that BeMyTECH can unlock for you.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="bootstrap/assets/img/BMT-logo.png" width="350" alt="About Hero">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-success-second py-5">
+            <div class="container">
+                <h3 style="text-align: center;">FEATURED PRODUCTS</h3>
+                <div class="row align-items-center py-5">
+                    <div class="col-md-4">
+                        <img src="bootstrap/assets/img/logo_2.png.png" width="250" alt="About Hero">
+                    </div>
+                    <div class="col-md-8 text-black">
+
+
+                        <p>
+                            At BeMyStep, Our mission is to provide innovative and accessible technology solutions
+                            that improve lives of visually impaired individuals.
+                            We are dedicated to creating a world where visually impaired individuals have equal
+                            opportuinities to fully participate in society.
+                        </p>
+                        <p>
+                            Through a commitment to continuous innovation and user-centered design, we strive to
+                            deliver products that are intuitive, reliable and empowering.
+                            Our ultimate goal is to break down barriers that exist between the visually impaired and
+                            the world, empowering them to achieve their full potential and live life on their own
+                            terms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2023 BeMyTECH
+                                | Designed by BeMyTECH
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+
+    </div>
+
+    <div id="AboutDiv" style="display:none">
+        <section class="bg-success py-5">
+            <div class="container">
+                <div class="row align-items-center py-5">
+                    <div class="col-md-8 text-white">
+                        <h1>About Us</h1>
+                        <p>
+                            With an application that will be connected to it, our smart device is offered as a suggested
+                            solution for those who are blind and visually impaired.
+                            People will become more independent as a result of it because they won't constantly need
+                            assistance from others. The smart device attached to a
+                            white cane and app will be able to identify obstacles and make getting around easier.
+
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="bootstrap/assets/img/Cane_and_box_demo-removebg-preview.png" width="350"
+                            alt="About Hero">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="teamscontainer" style="margin-left: 650px;">
+            <h3>OUR TEAM</h3>
+        </div>
+
+        <div class="team align-items-center py-5">
+
+
+
+
+            <!--Team info-->
+
+            <div class="row align-items-center py-5 justify-content-center text-center">
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch ms-auto" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="bootstrap/assets/img/stylish-confident-businesswoman-smiling.jpg"
+                                class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Sara Nalo</h4>
+                            <span>Chief Executive Officer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch ms-auto" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="bootstrap/assets/img/smiling-confident-businesswoman-posing-with-arms-folded.jpg"
+                                class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Tijana Burazorovic</h4>
+                            <span>Product Manager</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch ms-auto" style="margin-right: 100px;"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="bootstrap/assets/img/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg"
+                                class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Amina Tupkovic</h4>
+                            <span>CTO</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2023 BeMyTECH
+                                | Designed by BeMyTECH
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+
+    </div>
+
+    <div id="ContactDiv" style="display:none">
+        <!-- Start Content Page -->
+        <div class="container-fluid py-5" style="background-color:#3c679090">
+            <div class="col-md-6 m-auto text-center">
+                <h2 class="h2 text-white"><b>Contact Us</b></h2>
+                <p style="color: white;">
+                    For any question, you can always leave us a message down bellow
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Start Contact -->
+        <div class="container py-5">
+            <div class="row py-5">
+                <form class="col-md-9 m-auto" method="post" role="form">
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-3">
+                            <label for="inputname">Name</label>
+                            <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                            <label for="inputemail">Email</label>
+                            <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputsubject">Subject</label>
+                        <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputmessage">Message</label>
+                        <textarea class="form-control mt-1" id="message" name="message" placeholder="Message"
+                            rows="8"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col text-end mt-2">
+                            <button type="submit" class="btn btn-success btn-lg px-3"
+                                onclick="FormService.submitMessage()">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End Contact -->
+
+
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2023 BeMyTECH
+                                | Designed by BeMyTECH
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+    </div>
+    <div id="ProductDiv" style="display:none">
+        <br /><br /><br /><br />
+
+        <div id="singleProductContainer">
+        </div>
+    </div>
+
+
+    <div id="CartDiv" style="display:none">
+
+        <div id="cartContainer"></div>
+
+    </div>
+
+    <div id="UserDiv" style="display:none">
+
+        <div id="UserContainer">
+            <h1>Welcome</h1>
+        </div>
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2023 BeMyTECH
+                                | Designed by BeMyTECH
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+    </div>
+
+</body>
+
+<link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="node_modules/jwt-decode/build/jwt-decode.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+<script src="https://unpkg.com/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="bootstrap/assets/js/ChangeTab.js"></script>
+<script type="text/javascript" src="bootstrap/assets/js/ProductService.js"></script>
+<script type="text/javascript" src="bootstrap/assets/js/CartService.js"></script>
+<script type="text/javascript" src="bootstrap/assets/js/FormService.js"></script>
+<script type="text/javascript" src="bootstrap/assets/js/UserSevice.js"></script>
+<script type="text/javascript" src="bootstrap/assets/js/FilterService.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Bind click event to search button within the modal
+        $('#templatemo_search').on('click', '.input-group-text', function (event) {
+            event.preventDefault();
+
+            ProductService.searchByProductName();
+            FilterService.getSupplierFilters();
+            FilterService.getCategoryFilters();
+            ChangeTab.goToShopPage();
+
+            // Clear the search input
+            $('#inputModalSearch').val('');
+
+            // Close the modal
+            $('#templatemo_search').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+            $('body').css("overflow", "auto");
+        });
+    });
+
+</script>
+
+<!-- Search Modal -->
+<!-- Modal -->
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inputModalSearch" name="q"
+                    placeholder="Search for products...">
+                <button type="submit" class="input-group-text bg-success text-light">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Edit Product Modal -->
+<!-- Modal -->
+<div class="modal fade" id="editProductModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="editProductModalContent">
+            <div class="spinner-border" id="editModalSpinner" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <form id="editProductForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Product</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="edit_product_id" name="edit_product_id" hidden />
+                        <label for="name">Name:</label>
+                        <input type="text" id="edit_name" name="name" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="description">Description:</label>
+                        <input type="text" id="edit_description" name="description" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="price">Price:</label>
+                        <input type="number" id="edit_price" name="price" required class="form-control" />
+                    </div>
+                    <div>
+                        <label>Category:</label>
+                        <select name="edit_category_select" id="edit_category_select" class="form-control required">
+                        </select>
+                    </div>
+                    <div>
+                        <label>Supplier:</label>
+                        <select name="edit_supplier_select" id="edit_supplier_select" class="form-control required">
+                        </select>
+                    </div>
+                    <div>
+                        <label for="image">Image URL:</label>
+                        <input type="text" id="edit_image" name="image" required class="form-control" />
+                    </div>
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" onclick="ProductService.editProduct()" class="btn btn-success">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function showEditDialog(id) {
+
+        //$("#editProductModal").modal("show");
+        $(document).ready(function () { $("#editProductModal").modal('show'); });
+        $("#editModalSpinner").show();
+        $("#editProductForm").hide();
+        $.ajax({
+            url: 'rest/products/' + id,
+            method: "GET",
+            contentType: "application/json",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(
+                  "Authorization",
+                  localStorage.getItem("user_token")
+                );
+              },
+            success: function (data){
+                console.log(data);
+                let categories_select = '';
+                for (let i = 0; i < data.categories.length; i++) {
+                    categories_select += `<option value="${data.categories[i].id}">${data.categories[i].name}
+                        </option>`
+                }
+                $('#edit_category_select').html(categories_select);
+
+                let suppliers_select = '';
+                for (let i = 0; i < data.suppliers.length; i++) {
+                    suppliers_select += `<option value="${data.suppliers[i].id}">${data.suppliers[i].name}
+                        </option>`
+                }
+                $('#edit_supplier_select').html(suppliers_select);
+                console.log(data[0]);
+                console.log(data[0].id);
+                $("#edit_name").val(data[0].name);
+                $("#edit_description").val(data[0].description);
+                $("#edit_price").val(data[0].price);
+                $("#edit_image").val(data[0].image);
+                $("#edit_product_id").val(data[0].id);
+                $('#edit_category_select').val(data[0].category_id);
+                $('#edit_supplier_select').val(data[0].supplier_id);
+                $("#editModalSpinner").hide();
+                $("#editProductForm").show();
+            }
+        });
+    }
+
+</script>
+
+<!--Add product modal -->
+<div class="modal fade" id="addProductModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="addProductModalContent">
+            <div class="spinner-border" id="addModalSpinner" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <form id="addProductForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Product</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="add_product_id" name="add_product_id" hidden />
+                        <label for="name">Name:</label>
+                        <input type="text" id="add_name" name="name" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="description">Description:</label>
+                        <input type="text" id="add_description" name="description" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="price">Price:</label>
+                        <input type="number" id="add_price" name="price" required class="form-control" />
+                    </div>
+                    <div>
+                        <label>Category:</label>
+                        <select name="add_category_select" id="add_category_select" class="form-control required">
+                        </select>
+                    </div>
+                    <div>
+                        <label>Supplier:</label>
+                        <select name="add_supplier_select" id="add_supplier_select" class="form-control required">
+                        </select>
+                    </div>
+                    <div>
+                        <label for="image">Image URL:</label>
+                        <input type="text" id="add_image" name="image" required class="form-control" />
+                    </div>
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" onclick="ProductService.addProducts()" class="btn btn-success">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    function showAddDialog() {
+
+        $(document).ready(function () {
+            $("#addProductModal").modal('show');
+        });
+        $("#addModalSpinner").show();
+        $("#addProductForm").hide();
+        $.ajax({
+            url: 'rest/categories_and_suppliers',
+            method: "GET",
+            contentType: "application/json",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(
+                  "Authorization",
+                  localStorage.getItem("user_token")
+                );
+              },
+            success: function (data) {
+            let categories_select = '';
+            for (let i = 0; i < data.categories.length; i++) {
+                categories_select += `<option value="${data.categories[i].id}">${data.categories[i].name}
+                </option>`
+            }
+            $('#add_category_select').html(categories_select);
+
+            let suppliers_select = '';
+            for (let i = 0; i < data.suppliers.length; i++) {
+                suppliers_select += `<option value="${data.suppliers[i].id}">${data.suppliers[i].name}
+                </option>`
+            }
+            $('#add_supplier_select').html(suppliers_select);
+            $("#addModalSpinner").hide();
+            $("#addProductForm").show();
+        }
+    });
+
+
+    }
+
+</script>
+
+<!-- Add Supplier Modal -->
+<!-- Modal -->
+<div class="modal fade" id="addSupplierModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="addSupplierModalContent">
+
+            <form id="addSupplierForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Supplier</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="add_supplier">Name of Supplier:</label>
+                        <input type="text" id="add_supplier" name="add_supplier" required class="form-control" />
+                    </div>
+
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" onclick="ProductService.addSupplierButton()" class="btn btn-success">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+
+
+    function showAddSupplierDialog() {
+        $(document).ready(function () { $("#addSupplierModal").modal('show'); });
+        // $("#add_supplier_id").val();
+        $("#addSupplierForm").show();
+    }
+
+
+
+
+</script>
+<!-- Add Category Modal -->
+<!-- Modal -->
+
+<div class="modal fade" id="addCategoryModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="addCategoryModalContent">
+           
+            <form id="addCategoryForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Category</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="add_category">Name of Category:</label>
+                        <input type="text" id="add_category" name="add_category" required class="form-control" />
+                    </div>
+                    
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" onclick="ProductService.addCategoryButton()" class="btn btn-success">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+   
+   
+    function showAddCategoryDialog() {
+    $(document).ready(function () { $("#addCategoryModal").modal('show'); });
+    $("#addCategoryForm").show();
+}
+
+
+
+
+</script>
+<!-- Add Address Modal -->
+<!-- Modal -->
+<div class="modal fade" id="addAddressModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="addAddressModalContent">
+            <form id="addAddressForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Address</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="add_address_user_id" name="add_address_user_id" hidden />
+                        <label for="alias">Address Name(alias you can remember address by):</label>
+                        <input type="text" id="add_address_alias" name="alias" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="street">Street:</label>
+                        <input type="text" id="add_address_street" name="street" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="zip_code">ZIP Code:</label>
+                        <input type="number" id="add_address_zip_code" name="zip_code" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="country">Country:</label>
+                        <input type="text" id="add_address_country" name="country" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="city">City:</label>
+                        <input type="text" id="add_address_city" name="city" required class="form-control" />
+                    </div>
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" onclick="UserService.addUserAddress()" class="btn btn-success">
+                        Add Address
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function showAddAddressDialog(user_id) {
+        $(document).ready(function () { $("#addAddressModal").modal('show'); });
+        $("#add_address_user_id").val(user_id);
+        $("#addAddressForm").show();
+    }
+
+</script>
+
+<!-- Edit Address Modal -->
+<!-- Modal -->
+<div class="modal fade" id="editAddressModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="editAddressModalContent">
+            <div class="spinner-border" id="editAddressModalSpinner" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <form id="editAddressForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Address</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="edit_address_user_id" name="edit_address_user_id" hidden />
+                        <input id="edit_address_id" name="edit_address_id" hidden />
+                        <label for="alias">Address Name(alias you can remember address by):</label>
+                        <input type="text" id="edit_address_alias" name="alias" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="street">Street:</label>
+                        <input type="text" id="edit_address_street" name="street" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="zip_code">ZIP Code:</label>
+                        <input type="number" id="edit_address_zip_code" name="zip_code" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="country">Country:</label>
+                        <input type="text" id="edit_address_country" name="country" required class="form-control" />
+                    </div>
+                    <div>
+                        <label for="city">City:</label>
+                        <input type="text" id="edit_address_city" name="city" required class="form-control" />
+                    </div>
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" onclick="UserService.editUserAddress()" class="btn btn-success">
+                        Edit Address
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function showEditAddresDialog(id) {
+        //$("#editProductModal").modal("show");
+        $(document).ready(function () { $("#editAddressModal").modal('show'); });
+        $("#editAddressModalSpinner").show();
+        $("#editAddressForm").hide();
+        $.ajax({
+            url: 'rest/addresses/' + id,
+            method: "GET",
+            contentType: "application/json",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(
+                  "Authorization",
+                  localStorage.getItem("user_token")
+                );
+              },
+            success: function (data) {
+            $("#edit_address_alias").val(data[0].alias);
+            $("#edit_address_street").val(data[0].street);
+            $("#edit_address_zip_code").val(data[0].zip_code);
+            $("#edit_address_country").val(data[0].country);
+            $("#edit_address_city").val(data[0].city);
+            $("#edit_address_user_id").val(data[0].user_id);
+            $("#edit_address_id").val(data[0].id);
+            $("#editAddressModalSpinner").hide();
+            $("#editAddressForm").show();
+        }
+    });
+    }
+
+</script>
+
+
+<!-- Select Address Modal -->
+<!-- Modal -->
+<div class="modal fade" id="selectAddressModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="selectAddressModalContent">
+            <form id="selectAddressForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Select Address</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <input type="hidden" id="selected-address-id" name="selected_address_id" value="">
+                        <input type="hidden" id="selected_product_id" name="selected_product_id" value="">
+                        <label for="select_address">Select the address you'd like your order to be shipped to</label>
+                        <select class="form-select" aria-label="Select desired address" id="select-address">
+                        </select>
+                    </div>
+                    <br>
+                    <div id="totalPriceMessage"> Your total price is: $<span id="totalPriceValue"></span></div>
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" id="completePurchaseBtn">Complete Purchase</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function showSelectAddressDialog(product_id, total_price) {
+        $(document).ready(function () { $("#selectAddressModal").modal('show'); });
+        ProductService.selectAddress();
+        $("#selected_product_id").val(product_id);
+        $("#selectAddressForm").show();
+        $("#totalPriceValue").text(total_price);
+    }
+
+</script>
+
+<!-- Select Cart Address Modal -->
+<!-- Modal -->
+<div class="modal fade" id="selectCartAddressModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="selectCartAddressModalContent">
+            <form id="selectCartAddressForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Select Address</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" id="selected-cart-address-id" name="selected_cart_address_id" value="">
+                        <label for="select_cart_address">Select the address you'd like your order to be shipped
+                            to</label>
+                        <select class="form-select" aria-label="Select desired address" id="select-cart-address">
+                        </select>
+                    </div>
+                </div>
+                <div class="error"><span></span></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" id="completePurchaseBtn2">Complete Purchase</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function showSelectCartAddressDialog() {
+        $(document).ready(function () { $("#selectCartAddressModal").modal('show'); });
+        CartService.selectAddress();
+        $("#selectCartAddressForm").show();
+    }
+
+</script>
+
+
+<!-- DECODING TOKEN TO CHECK WHETHER TO SHOW A BUTTON BASED ON AUTH -->
+<script>
+    // Assuming you have the `token` object with the `auth` property
+    var token = localStorage.getItem("user_token");
+    var decodedToken = jwt_decode(token);
+    // Get the reference to the button element
+    var addButton = document.getElementById("addProductButton");
+    var addSuppiler = document.getElementById("addSupplierButton");
+    var addCategory = document.getElementById("addCategoryButton");
+    var cartButton = document.getElementById("buttonCart");
+
+    // Check the value of token.auth and update the button's style accordingly
+    if (decodedToken.authorization == "authorized") {
+        addButton.style.display = "block"; // Show the button
+        cartButton.style.display = "none";
+        addSuppiler.style.display = "block";
+        addCategory.style.display = "block";
+    } else {
+        addButton.style.display = "none"; // Hide the button
+        cartButton.style.display = "block";
+        addSuppiler.style.display = "none";
+        addCategory.style.display = "none";
+    }
+</script>
+
+<script>
+    var token = localStorage.getItem("user_token");
+    if(token){
+        var nav =
+        '<li class="nav-item">' +
+        '<a class="nav-link" href="#home" onclick="ChangeTab.goToHomePage();" >Home</a>' +
+        "</li>" +
+        '<li class="nav-item">' +
+        '<a class="nav-link" href="#shop" onclick="ChangeTab.goToShopPage(); ProductService.getProducts(); FilterService.getCategoryFilters(); FilterService.getSupplierFilters();">Shop</a>' +
+        "</li>" +
+        '<li class="nav-item">' +
+        '<a class="nav-link" href="#about" onclick="ChangeTab.goToAboutPage();">About</a>' +
+        "</li>" +
+        '<li class="nav-item">' +
+        '<a class="nav-link" href="#contact" onclick="ChangeTab.goToContactPage();">Contact</a>' +
+        "</li>";
+        $("#tabs").html(nav);
+
+    var main =
+        '<section id="shop"></section>' +
+        '<section id="about"></section>' +
+        '<section id="contact"></section>' +
+        '<section id="home"></section>';
+        $("#spapp").html(main);
+  }else{
+    window.location.replace("register.html");
+  }
+    
+
+</script>
+
+
+
+</html>

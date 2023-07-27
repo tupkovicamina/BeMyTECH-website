@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>BeMyTECH</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="bootstrap/assets/img/Be My TECH.png">
+  <link rel="shortcut icon" type="image/x-icon" href="bootstrap/assets/img/Be_My_TECH-removebg-preview.png">
+  <link rel="stylesheet" href="bootstrap/assets/css/custom.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
+
+  <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet" />
+
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <html lang="en">
+
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row align-items-center py-3">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <div class="register-image-container">
+            <img src="bootstrap/assets/img/BMT-logo.png" width="200">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-md-8 col-md-offset-2">
+          <div id="userform">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li class="active"><a href="#signup" role="tab" data-toggle="tab">Sign up</a></li>
+              <li><a href="#login" role="tab" data-toggle="tab">Log in</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade active in" id="signup">
+                <h2 class="text-uppercase text-center">Sign Up</h2>
+                <form id="signup-form">
+                  <div class="form-group">
+                    <input type="full_name" class="form-control" id="full_name" placeholder="Your Full Name" required
+                      data-validation-required-message="Please enter your full name." autocomplete="off">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input type="email_signup" class="form-control" id="email_signup" placeholder="Your Email" required
+                      data-validation-required-message="Please enter your email address." autocomplete="off">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" class="form-control" id="phone" placeholder="Your Phone" required
+                      data-validation-required-message="Please enter your phone number." autocomplete="off">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="password_signup" placeholder="Your Password"
+                      required data-validation-required-message="Please enter your password" autocomplete="off">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="mrgn-30-top">
+                    <button type="submit" class="btn btn-larger btn-block">
+                      Sign up
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-pane fade in" id="login">
+                <h2 class="text-uppercase text-center">Log in</h2>
+                <form id="login-form">
+                  <div class="form-group">
+                    <input type="email_login" class="form-control" id="email_login" placeholder="Your Email" required
+                      data-validation-required-message="Please enter your email address." autocomplete="off">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="password_login" placeholder="Your Password" required
+                      data-validation-required-message="Please enter your password" autocomplete="off">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="mrgn-30-top">
+                    <button type="submit" class="btn btn-larger btn-block">
+                      Log in
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+  <script src="bootstrap/assets/js/UserSevice.js"></script>
+  <script type="text/javascript">
+    UserService.init();
+  </script>
+  <!-- partial -->
+
+  
+  <script type="text/javascript">
+    /*this code snippet provides a visual feedback mechanism for the input and textarea elements within the form, making it more user-friendly by 
+    indicating when an input field is active, has content, or lost focus. 
+    The 'highlight' class seems to be used for active input fields, and the 'active' class for input fields with content.*/
+    $('#form').find('input, textarea').on('keyup blur focus', function (e) {
+
+      var $this = $(this),
+        label = $this.prev('label');
+
+      if (e.type === 'keyup') {
+        if ($this.val() === '') {
+          label.removeClass('active highlight');
+        } else {
+          label.addClass('active highlight');
+        }
+      } else if (e.type === 'blur') {
+        if ($this.val() === '') {
+          label.removeClass('active highlight');
+        } else {
+          label.removeClass('highlight');
+        }
+      } else if (e.type === 'focus') {
+
+        if ($this.val() === '') {
+          label.removeClass('highlight');
+        }
+        else if ($this.val() !== '') {
+          label.addClass('highlight');
+        }
+      }
+
+    });
+
+    $('.tab a').on('click', function (e) {
+
+      e.preventDefault();
+
+      $(this).parent().addClass('active');
+      $(this).parent().siblings().removeClass('active');
+
+      target = $(this).attr('href');
+
+      $('.tab-content > div').not(target).hide();
+
+      $(target).fadeIn(800);
+
+    });
+
+  </script>
+
+</body>
+
+</html>
